@@ -1,0 +1,48 @@
+
+#quote-box{
+    background-color:white;
+    border-radius: 2px 25px 2px 25px;
+    margin: 200px auto 20px auto;
+    width:500px;
+    padding: 50px;
+    
+}
+#text{
+    width:500px ;
+    font-size: 1.40em;;
+    font-weight: 500;
+    font-family: Arial;
+
+    
+}
+.fa-quote-left:before {
+    content: "\f10d";
+}
+.fa-quote-left{
+    display: inline-block;
+    vertical-align: top;
+}
+
+#new-quote{
+    border:none; 
+    border-radius: 5px; 
+    height:38px;
+    margin: 2px 0px;
+    float:right;
+    color: white;
+    font-size: 18px;
+}
+#tweet-quote{
+    text-decoration: none; 
+    color:white;
+    height:40px;
+}
+#footer{   
+    margin: 10px 0px;
+}
+
+#author{
+    float: right; 
+    margin-right: 4px;
+    font-size: 20px;
+}

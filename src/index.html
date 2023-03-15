@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Quotes Machine</title>
+    <link rel="stylesheet" type="text/css" href="./styles.css">
+  
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body >
+    <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
+    <script>
+        const arrQuotes = [
+            {
+                quote:"We cannot solve problems with the kind of thinking we employed when we came up with them.",
+                author:"- Albert Einstein"
+            },
+            {
+                quote:"Learn as if you will live forever, live like you will die tomorrow.",
+                author:"- Mahatma Gandhi"
+            },
+            {
+                quote:"When you give joy to other people, you get more joy in return. You should give a good thought to happiness that you can give out.",
+                author:"- Norman Vincent Peale"
+            },
+            {
+                quote:"It is only when we take chances, when our lives improve. The initial and the most difficult risk that we need to take is to become honest.",
+                author:"- Walter Anderson"
+            },
+            {
+                quote:"Success is not final; failure is not fatal: It is the courage to continue that counts.",
+                author:"- Winston S. Churchill"
+            },
+            {
+                quote:"It is better to fail in originality than to succeed in imitation.",
+                author:"- Herman Melville"
+            },
+            {
+                quote:"Success usually comes to those who are too busy looking for it.",
+                author:"- Henry David Thoreau"
+            },
+            {
+                quote:"Don’t let yesterday take up too much of today.",
+                author:"- Will Rogers"
+            },
+            {
+                quote:"If you are working on something that you really care about, you don’t have to be pushed. The vision pulls you.",
+                author:"- Steve Jobs"
+            },
+            {
+                quote:"To know how much there is to know is the beginning of learning to live.",
+                author:"- Dorothy West"
+            },
+            {
+                quote:"Either you run the day or the day runs you.",
+                author:"- Jim Rohn"
+            },
+            {
+                quote:"Opportunity is missed by most people because it is dressed in overalls and looks like work.",
+                author:"- Thomas Edison"
+            },
+
+        ]
+        const arrColor = ["rgb(155, 89, 182)","rgb(115, 168, 87)","rgb(189, 187, 153)","rgb(52, 34, 36)","rgb(251, 105, 100)","rgb(119, 177, 169)","rgb(22, 160, 133)","rgb(36 36 72)","#ff3333","#333300","#ccff66","#cc6699","	#999900"]
+        colorGenerator =()=> {
+            let colorNum = Math.floor(Math.random() * arrColor.length)
+            let color = arrColor[colorNum]
+           
+            return color
+        }
+        let getColor= ()=>{
+            let getColor = colorGenerator();
+            document.getElementById("text").style.color = getColor
+            document.getElementById("author").style.color = getColor
+            
+            document.getElementById("new-quote").style.backgroundColor = getColor
+            document.getElementById("twitter-icon").style.color = getColor
+            document.body.style.backgroundColor = getColor
+        }
+        window.onload =  function(){
+            quoteGenerator();
+            getColor()
+        }
+        
+        function quoteGenerator(){
+            let length = arrQuotes.length;
+            let quoteNum = Math.floor(Math.random()* length)
+            let generatedQuote = arrQuotes[quoteNum]
+            let tweetQuoteLink = "https://twitter.com/intent/tweet?hashtags=quotes&amp;related=freecodecamp&amp;text=" 
+
+            tweetQuoteLink += '"'+ generatedQuote.quote.replace(/ /g,"%20") + '"'
+            tweetQuoteLink += " - " + generatedQuote.author.replace(/ /g,"%20")
+            document.getElementById("tweet-quote").href = tweetQuoteLink
+            document.getElementById("text").innerHTML = generatedQuote.quote
+            document.getElementById("author").innerHTML = generatedQuote.author
+            //return arrQuotes[quoteNum]
+        }
+        
+        
+       
+    </script>
+        <div id="quote-box" >
+            <i class="fa fa-quote-left"> </i>
+            <span id= "text" ></span><br><br>
+            <div id="author" ></div>
+            <br>
+            <hr>
+            
+
+            <div id="footer">
+                <span  id ="tweet-quote1" ><a id ="tweet-quote"  href ="#" target="_blank"><i class='fa fa-twitter-square' id = "twitter-icon" style="font-size: 40px; margin: 0px;"></i></a></span>
+                <button id = "new-quote"  onclick="quoteGenerator(); getColor()">New quote</button>
+            </div>
+            
+        </div>
+        
+    <div id="dev" style="margin: auto;text-align: center; color: white;font-size: 20px;">by <b>Tiisetso Mmaboko</b></div>
+    
+</body>
+</html>
